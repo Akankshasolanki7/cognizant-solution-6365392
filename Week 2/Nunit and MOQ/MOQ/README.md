@@ -59,6 +59,12 @@ dotnet build MOQScenarios.sln
 dotnet test MOQScenarios.sln
 ```
 
+## Test Results
+
+✅ **All 5 tests pass successfully:**
+- 3 DirectoryExplorer tests (File System Mocking)
+- 2 CustomerComm tests (Mail Server Mocking)
+
 ## Key Learning Points
 
 1. **Mocking Benefits**:
