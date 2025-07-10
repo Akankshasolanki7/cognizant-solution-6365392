@@ -1,0 +1,6 @@
+@CustomModelsApi_HostAddress = http://localhost:5106
+
+GET {{CustomModelsApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
