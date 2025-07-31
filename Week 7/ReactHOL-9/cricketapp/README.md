@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+# ES6 JavaScript – Objective Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📃 Objectives
 
-## Available Scripts
+* List the features of ES6
+* Explain JavaScript `let`
+* Identify the differences between `var` and `let`
+* Explain JavaScript `const`
+* Explain ES6 class fundamentals
+* Explain ES6 class inheritance
+* Define ES6 arrow functions
+* Identify `set()` and `map()`
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✅ 1. Features of ES6
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* `let` and `const` for block-scoped variables
+* Arrow functions (`=>`)
+* Classes and inheritance
+* Template literals using backticks `` `Hello ${name}` ``
+* Default and rest parameters
+* Destructuring arrays and objects
+* Spread operator `...`
+* Promises for async code
+* `Map` and `Set` objects
+* `for...of` loop
+* Modules (import/export)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🔹 2. JavaScript `let`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* `let` declares **block-scoped** variables.
+* Cannot be redeclared in the same scope.
+* Not hoisted like `var`.
 
-### `npm run build`
+```js
+let a = 10;
+if (true) {
+  let a = 20; // different variable
+  console.log(a); // 20
+}
+console.log(a); // 10
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔁 3. Difference Between `var` and `let`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Feature       | `var`                          | `let`                 |
+| ------------- | ------------------------------ | --------------------- |
+| Scope         | Function-scoped                | Block-scoped          |
+| Hoisting      | Yes (initialized as undefined) | Yes (not initialized) |
+| Redeclaration | Allowed                        | Not allowed           |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔒 4. JavaScript `const`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Used to declare **constants** (block-scoped).
+* Value can't be reassigned, but **object properties can change**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```js
+const x = 5;
+// x = 10; // ❌ Error
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+const user = { name: "Alex" };
+user.name = "Bob"; // ✅ Allowed
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧱 5. ES6 Class Fundamentals
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* ES6 classes are syntactic sugar over constructor functions.
+* Use `constructor()` for initializing objects.
 
-### Code Splitting
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  greet() {
+    return `Hello, ${this.name}`;
+  }
+}
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 👨‍👩‍👦 6. ES6 Class Inheritance
 
-### Making a Progressive Web App
+* Use `extends` and `super()` to inherit from another class.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```js
+class Student extends Person {
+  constructor(name, grade) {
+    super(name); // calls Person constructor
+    this.grade = grade;
+  }
 
-### Advanced Configuration
+  info() {
+    return `${this.name} is in grade ${this.grade}`;
+  }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## ➡️ 7. Arrow Functions in ES6
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Shorter syntax for functions.
+* Does **not bind its own `this`**.
 
-### `npm run build` fails to minify
+```js
+const add = (a, b) => a + b;
+const greet = () => console.log("Hello");
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 🗃️ 8. `Set()` and `Map()` in ES6
+
+### ✅ `Set`
+
+* Stores **unique** values only.
+
+```js
+const s = new Set([1, 2, 2, 3]);
+s.add(4);
+console.log(s); // Set(4) {1, 2, 3, 4}
+```
+
+### ✅ `Map`
+
+* Stores **key-value pairs**.
+* Keys can be of **any type**.
+
+```js
+const m = new Map();
+m.set("name", "Alice");
+m.set(1, "one");
+
+console.log(m.get("name")); // Alice
+```
+
+
+```
