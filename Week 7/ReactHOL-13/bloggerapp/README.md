@@ -1,70 +1,87 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## 🔀 23. Various Ways of Conditional Rendering in React
 
-### `npm start`
+* `if/else` statement inside the render method
+* Ternary operator: `{condition ? <A /> : <B />}`
+* Logical `&&` operator: `{condition && <A />}`
+* Immediately invoked function expression (IIFE) for complex logic
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```jsx
+{isLoggedIn && <Logout />}
+{isAdmin ? <AdminPanel /> : <UserPanel />}
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧩 24. Rendering Multiple Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Wrap multiple components in a parent element like `div`, `React.Fragment`, or `<>`.
 
-### `npm run build`
+```jsx
+return (
+  <>
+    <Header />
+    <Content />
+    <Footer />
+  </>
+);
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📝 25. List Component
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Used to render a list of items using `.map()`
 
-### `npm run eject`
+```jsx
+function List(props) {
+  return (
+    <ul>
+      {props.items.map(item => <li key={item.id}>{item.name}</li>)}
+    </ul>
+  );
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔑 26. Keys in React Applications
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* `key` is a special prop used to uniquely identify elements in a list.
+* Helps React optimize re-rendering.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```jsx
+{items.map(item => <li key={item.id}>{item.name}</li>)}
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧱 27. Extract Components with Keys
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* When mapping over data, extract each rendered element into a separate component and pass `key` at the parent level.
 
-### Code Splitting
+```jsx
+function User(props) {
+  return <li>{props.name}</li>;
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+{users.map(user => <User key={user.id} name={user.name} />)}
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🗺️ 28. React Map / `map()` Function
 
-### Making a Progressive Web App
+* `map()` is a JavaScript function to loop over arrays.
+* In React, it's often used to generate components dynamically.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```jsx
+const names = ['Alice', 'Bob', 'Charlie'];
+const nameList = names.map((name, index) => <li key={index}>{name}</li>);
 
-### Advanced Configuration
+return <ul>{nameList}</ul>;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

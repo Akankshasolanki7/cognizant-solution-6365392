@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🧩 16. React Events
 
-## Available Scripts
+* React handles events similar to HTML but with **camelCase** naming and **JSX syntax**.
+* Events are passed as **functions**, not strings.
 
-In the project directory, you can run:
+```jsx
+<button onClick={() => alert('Clicked!')}>Click Me</button>
+```
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ 17. Event Handlers in React
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Event handlers are functions triggered on user interaction like click, hover, etc.
+* Common handlers include `onClick`, `onChange`, `onSubmit`.
 
-### `npm test`
+```jsx
+function handleClick() {
+  console.log("Button clicked");
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<button onClick={handleClick}>Click</button>
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧵 18. Synthetic Events
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* React wraps native events inside a **SyntheticEvent** to ensure cross-browser compatibility.
+* SyntheticEvent works identically across all browsers.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```jsx
+function handleInput(e) {
+  console.log(e.target.value); // SyntheticEvent
+}
 
-### `npm run eject`
+<input onChange={handleInput} />
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧾 19. React Event Naming Convention
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Use **camelCase** for event names (e.g., `onClick`, `onChange`).
+* Event handlers are passed as functions, **not strings**.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+❌ Wrong:
 
-## Learn More
+```html
+<button onclick="handleClick()">Click</button>
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+✅ Correct:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```jsx
+<button onClick={handleClick}>Click</button>
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
