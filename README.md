@@ -30,10 +30,10 @@
 ### **⏳ Upcoming:**
 
 #### **Week 6: [To be defined]**
-- 📁 `Week 6/`
+- 📁 `Week 6/ReactJs/`
 
 #### **Week 7: [To be defined]**
-- 📁 `Week 7/`
+- 📁 `Week 7/ReactJs`
 
 ## 🚀 Quick Start
 
@@ -45,8 +45,9 @@
 - ✅ **Week 3**: Complete (Entity Framework Core)
 - ✅ **Week 4**: Complete (Web API Development)
 - 🔄 **Week 5**: complete (Kafka Integration,JWTAuth Microservice Implementation)
-- ⏳ **Week 6**: Pending
-- ⏳ **Week 7**: Pending
+- ⏳ **Week 6**: complete(ReactJs(HOL))
+- ⏳ **Week 7**: Complete(ReactJs(HOL))
+- ⏳ **Week 8**: Complete (Git)
 
 ## 🎯 Key Technologies Covered
 
